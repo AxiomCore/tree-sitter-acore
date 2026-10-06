@@ -1,0 +1,8 @@
+This grammar adapts Apple tree-sitter-pkl grammar.js and scanner.c, licensed
+under Apache-2.0. See vendor/pkl/UPSTREAM.json for the exact upstream revision.
+Copyright © 2024-2026 Apple Inc. and the Pkl project authors.
+
+AxiomCore modifications add syntax nodes for Acore domains, named arguments,
+lists, implicit members, typed constructors and domain declarations. The
+scanner entry points have been renamed for Acore. Semantic validation remains
+in the Acore compiler and language server.

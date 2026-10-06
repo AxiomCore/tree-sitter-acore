@@ -1,0 +1,17 @@
+{
+  "grammars": [{
+    "name": "acore",
+    "camelcase": "Acore",
+    "scope": "source.acore",
+    "path": ".",
+    "file-types": ["acore"],
+    "highlights": "queries/highlights.scm"
+  }],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "Apache-2.0",
+    "description": "Tree-sitter syntax for Acore configuration, backend, frontend and database sources",
+    "authors": [{"name": "AxiomCore contributors"}]
+  },
+  "bindings": {"c": true}
+}

@@ -1,0 +1,301 @@
+========================================
+Acore typed configuration
+========================================
+class Settings {
+  enabled: Boolean = true
+  label: String = "Editor"
+}
+
+settings: Settings = Settings { enabled = false }
+transform = (value: Int) -> value + 1
+
+
+----------------------------------------
+
+(module
+  (clazz
+    (identifier)
+    (classBody
+      (classProperty
+        (identifier)
+        (typeAnnotation
+          (declaredType
+            (qualifiedIdentifier
+              (identifier))))
+        (trueLiteralExpr))
+      (classProperty
+        (identifier)
+        (typeAnnotation
+          (declaredType
+            (qualifiedIdentifier
+              (identifier))))
+        (slStringLiteralExpr
+          (slStringLiteralPart)))))
+  (classProperty
+    (identifier)
+    (typeAnnotation
+      (declaredType
+        (qualifiedIdentifier
+          (identifier))))
+    (constructorExpr
+      (qualifiedIdentifier
+        (identifier))
+      (objectBody
+        (objectProperty
+          (identifier)
+          (falseLiteralExpr)))))
+  (classProperty
+    (identifier)
+    (functionLiteralExpr
+      (parameterList
+        (typedIdentifier
+          (identifier)
+          (typeAnnotation
+            (declaredType
+              (qualifiedIdentifier
+                (identifier))))))
+      (additiveExpr
+        (unqualifiedAccessExpr
+          (identifier))
+        (intLiteralExpr)))))
+
+========================================
+Acore backend contract
+========================================
+profile backend 1
+project(id: "editor.backend", version: "1.0.0")
+
+model Task { id: String title: String }
+
+endpoint listTasks(method: GET, path: "/tasks") {
+  response(type: List<Models.Task>)
+}
+
+
+----------------------------------------
+
+(module
+  (profileDeclaration
+    (identifier)
+    (intLiteralExpr))
+  (domainCall
+    (qualifiedIdentifier
+      (identifier))
+    (argumentList
+      (namedArgument
+        (identifier)
+        (slStringLiteralExpr
+          (slStringLiteralPart)))
+      (namedArgument
+        (identifier)
+        (slStringLiteralExpr
+          (slStringLiteralPart)))))
+  (domainDeclaration
+    (qualifiedIdentifier
+      (identifier))
+    (objectBody
+      (objectProperty
+        (identifier)
+        (typeAnnotation
+          (declaredType
+            (qualifiedIdentifier
+              (identifier)))))
+      (objectProperty
+        (identifier)
+        (typeAnnotation
+          (declaredType
+            (qualifiedIdentifier
+              (identifier)))))))
+  (domainDeclaration
+    (qualifiedIdentifier
+      (identifier))
+    (argumentList
+      (namedArgument
+        (identifier)
+        (unqualifiedAccessExpr
+          (identifier)))
+      (namedArgument
+        (identifier)
+        (slStringLiteralExpr
+          (slStringLiteralPart))))
+    (objectBody
+      (objectElement
+        (unqualifiedAccessExpr
+          (identifier)
+          (argumentList
+            (namedArgument
+              (identifier)
+              (genericExpr
+                (qualifiedIdentifier
+                  (identifier))
+                (typeArgumentList
+                  (declaredType
+                    (qualifiedIdentifier
+                      (identifier)
+                      (identifier))))))))))))
+
+========================================
+Acore frontend application
+========================================
+module editor.ui
+
+app EditorApp { route "/" => Home }
+
+page Home {
+  state count: Int = 0
+  action increment() { count = count + 1 }
+  view {
+    View {
+      Text("Hello")
+      Button(label: "Increment", on_press: increment)
+    }
+  }
+}
+
+
+----------------------------------------
+
+(module
+  (moduleHeader
+    (moduleClause
+      (qualifiedIdentifier
+        (identifier)
+        (identifier))))
+  (domainDeclaration
+    (qualifiedIdentifier
+      (identifier))
+    (objectBody
+      (routeDeclaration
+        (stringConstant
+          (slStringLiteralPart))
+        (unqualifiedAccessExpr
+          (identifier)))))
+  (domainDeclaration
+    (qualifiedIdentifier
+      (identifier))
+    (objectBody
+      (domainBinding
+        (identifier)
+        (typeAnnotation
+          (declaredType
+            (qualifiedIdentifier
+              (identifier))))
+        (intLiteralExpr))
+      (domainFunction
+        (identifier)
+        (parameterList)
+        (objectBody
+          (objectProperty
+            (identifier)
+            (additiveExpr
+              (unqualifiedAccessExpr
+                (identifier))
+              (intLiteralExpr)))))
+      (domainBlock
+        (objectBody
+          (objectProperty
+            (identifier)
+            (objectBody
+              (objectElement
+                (unqualifiedAccessExpr
+                  (identifier)
+                  (argumentList
+                    (slStringLiteralExpr
+                      (slStringLiteralPart)))))
+              (objectElement
+                (unqualifiedAccessExpr
+                  (identifier)
+                  (argumentList
+                    (namedArgument
+                      (identifier)
+                      (slStringLiteralExpr
+                        (slStringLiteralPart)))
+                    (namedArgument
+                      (identifier)
+                      (unqualifiedAccessExpr
+                        (identifier)))))))))))))
+
+========================================
+Acore PostgreSQL contract
+========================================
+module editor.storage
+
+database editor(engine: DatabaseEngine.postgres) {
+  manage(schemas: [Schemas.app], mode: ManagementMode.ownedObjects)
+  schema app {
+    table tasks {
+      id: Pg.Uuid
+      title: Pg.Text
+      primaryKey(columns: [.id])
+    }
+  }
+}
+
+
+----------------------------------------
+
+(module
+  (moduleHeader
+    (moduleClause
+      (qualifiedIdentifier
+        (identifier)
+        (identifier))))
+  (domainDeclaration
+    (qualifiedIdentifier
+      (identifier))
+    (argumentList
+      (namedArgument
+        (identifier)
+        (qualifiedAccessExpr
+          (unqualifiedAccessExpr
+            (identifier))
+          (identifier))))
+    (objectBody
+      (objectElement
+        (unqualifiedAccessExpr
+          (identifier)
+          (argumentList
+            (namedArgument
+              (identifier)
+              (listExpr
+                (qualifiedAccessExpr
+                  (unqualifiedAccessExpr
+                    (identifier))
+                  (identifier))))
+            (namedArgument
+              (identifier)
+              (qualifiedAccessExpr
+                (unqualifiedAccessExpr
+                  (identifier))
+                (identifier))))))
+      (domainDeclaration
+        (qualifiedIdentifier
+          (identifier))
+        (objectBody
+          (domainDeclaration
+            (qualifiedIdentifier
+              (identifier))
+            (objectBody
+              (objectProperty
+                (identifier)
+                (typeAnnotation
+                  (declaredType
+                    (qualifiedIdentifier
+                      (identifier)
+                      (identifier)))))
+              (objectProperty
+                (identifier)
+                (typeAnnotation
+                  (declaredType
+                    (qualifiedIdentifier
+                      (identifier)
+                      (identifier)))))
+              (objectElement
+                (unqualifiedAccessExpr
+                  (identifier)
+                  (argumentList
+                    (namedArgument
+                      (identifier)
+                      (listExpr
+                        (implicitMemberExpr
+                          (identifier))))))))))))))
