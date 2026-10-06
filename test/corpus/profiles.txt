@@ -193,27 +193,29 @@ page Home {
               (intLiteralExpr)))))
       (domainBlock
         (objectBody
-          (objectProperty
-            (identifier)
-            (objectBody
-              (objectElement
-                (unqualifiedAccessExpr
-                  (identifier)
-                  (argumentList
-                    (slStringLiteralExpr
-                      (slStringLiteralPart)))))
-              (objectElement
-                (unqualifiedAccessExpr
-                  (identifier)
-                  (argumentList
-                    (namedArgument
-                      (identifier)
+          (objectElement
+            (constructorExpr
+              (qualifiedIdentifier
+                (identifier))
+              (objectBody
+                (objectElement
+                  (unqualifiedAccessExpr
+                    (identifier)
+                    (argumentList
                       (slStringLiteralExpr
-                        (slStringLiteralPart)))
-                    (namedArgument
-                      (identifier)
-                      (unqualifiedAccessExpr
-                        (identifier)))))))))))))
+                        (slStringLiteralPart)))))
+                (objectElement
+                  (unqualifiedAccessExpr
+                    (identifier)
+                    (argumentList
+                      (namedArgument
+                        (identifier)
+                        (slStringLiteralExpr
+                          (slStringLiteralPart)))
+                      (namedArgument
+                        (identifier)
+                        (unqualifiedAccessExpr
+                          (identifier))))))))))))))
 
 ========================================
 Acore PostgreSQL contract

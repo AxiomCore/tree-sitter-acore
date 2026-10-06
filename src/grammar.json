@@ -23,8 +23,51 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "moduleHeader"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "profileDeclaration"
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "moduleHeader"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "moduleHeader"
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "profileDeclaration"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "BLANK"
@@ -43,10 +86,6 @@
               {
                 "type": "SYMBOL",
                 "name": "importGlobClause"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "profileDeclaration"
               },
               {
                 "type": "SYMBOL",
@@ -87,6 +126,18 @@
               {
                 "type": "SYMBOL",
                 "name": "stylesDeclaration"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "migrationDeclaration"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "applicationReference"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "workflowStatement"
               }
             ]
           }
@@ -785,6 +836,30 @@
         },
         {
           "type": "SYMBOL",
+          "name": "namedRouteDeclaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "routeParameter"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "applicationReference"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "migrationDeclaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "workflowStatement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "updateStatement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "domainIf"
         },
         {
@@ -805,7 +880,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "_propertyName"
         },
         {
           "type": "CHOICE",
@@ -4562,8 +4637,43 @@
           "value": "profile"
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "backend"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "frontend"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "database"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "package"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "extension"
+                  }
+                ]
+              },
+              "named": true,
+              "value": "identifier"
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -4809,6 +4919,130 @@
               {
                 "type": "STRING",
                 "value": "invoke"
+              },
+              {
+                "type": "STRING",
+                "value": "sequence"
+              },
+              {
+                "type": "STRING",
+                "value": "extension"
+              },
+              {
+                "type": "STRING",
+                "value": "collation"
+              },
+              {
+                "type": "STRING",
+                "value": "role"
+              },
+              {
+                "type": "STRING",
+                "value": "roleGrant"
+              },
+              {
+                "type": "STRING",
+                "value": "grant"
+              },
+              {
+                "type": "STRING",
+                "value": "rowSecurity"
+              },
+              {
+                "type": "STRING",
+                "value": "range"
+              },
+              {
+                "type": "STRING",
+                "value": "domain"
+              },
+              {
+                "type": "STRING",
+                "value": "composite"
+              },
+              {
+                "type": "STRING",
+                "value": "view"
+              },
+              {
+                "type": "STRING",
+                "value": "materializedView"
+              },
+              {
+                "type": "STRING",
+                "value": "partitionedTable"
+              },
+              {
+                "type": "STRING",
+                "value": "partition"
+              },
+              {
+                "type": "STRING",
+                "value": "function"
+              },
+              {
+                "type": "STRING",
+                "value": "procedure"
+              },
+              {
+                "type": "STRING",
+                "value": "aggregate"
+              },
+              {
+                "type": "STRING",
+                "value": "trigger"
+              },
+              {
+                "type": "STRING",
+                "value": "foreignDataWrapper"
+              },
+              {
+                "type": "STRING",
+                "value": "foreignServer"
+              },
+              {
+                "type": "STRING",
+                "value": "userMapping"
+              },
+              {
+                "type": "STRING",
+                "value": "foreignTable"
+              },
+              {
+                "type": "STRING",
+                "value": "evolution"
+              },
+              {
+                "type": "STRING",
+                "value": "referenceData"
+              },
+              {
+                "type": "STRING",
+                "value": "store"
+              },
+              {
+                "type": "STRING",
+                "value": "form_model"
+              },
+              {
+                "type": "STRING",
+                "value": "field"
+              },
+              {
+                "type": "STRING",
+                "value": "rule"
+              },
+              {
+                "type": "STRING",
+                "value": "async"
+              },
+              {
+                "type": "STRING",
+                "value": "array"
+              },
+              {
+                "type": "STRING",
+                "value": "server"
               }
             ]
           },
@@ -4816,8 +5050,17 @@
             "type": "FIELD",
             "name": "name",
             "content": {
-              "type": "SYMBOL",
-              "name": "qualifiedIdentifier"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "qualifiedIdentifier"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "stringConstant"
+                }
+              ]
             }
           },
           {
@@ -4975,76 +5218,165 @@
       ]
     },
     "domainBinding": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "state"
-            },
-            {
-              "type": "STRING",
-              "value": "derived"
-            },
-            {
-              "type": "STRING",
-              "value": "computed"
-            },
-            {
-              "type": "STRING",
-              "value": "query"
-            },
-            {
-              "type": "STRING",
-              "value": "mutation"
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "state"
+              },
+              {
+                "type": "STRING",
+                "value": "derived"
+              },
+              {
+                "type": "STRING",
+                "value": "computed"
+              },
+              {
+                "type": "STRING",
+                "value": "query"
+              },
+              {
+                "type": "STRING",
+                "value": "mutation"
+              }
+            ]
+          },
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
             }
-          ]
-        },
-        {
-          "type": "FIELD",
-          "name": "name",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "typeAnnotation"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "="
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_expr"
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "operationClauses"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "objectBody"
+              }
+            ]
           }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "CHOICE",
+        ]
+      }
+    },
+    "operationClauses": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "REPEAT1",
+                "content": {
+                  "type": "SEQ",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "typeAnnotation"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "options"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "optimistic"
+                        }
+                      ]
                     },
                     {
-                      "type": "BLANK"
+                      "type": "SYMBOL",
+                      "name": "argumentList"
                     }
                   ]
-                },
-                {
-                  "type": "STRING",
-                  "value": "="
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_expr"
                 }
-              ]
-            },
-            {
-              "type": "SYMBOL",
-              "name": "objectBody"
-            }
-          ]
-        }
-      ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "when"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_expr"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "when"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expr"
+              }
+            ]
+          }
+        ]
+      }
     },
     "domainBlock": {
       "type": "SEQ",
@@ -5111,6 +5443,257 @@
         {
           "type": "STRING",
           "value": "=>"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expr"
+        }
+      ]
+    },
+    "namedRouteDeclaration": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "route"
+          },
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          },
+          {
+            "type": "SYMBOL",
+            "name": "stringConstant"
+          },
+          {
+            "type": "STRING",
+            "value": "=>"
+          },
+          {
+            "type": "FIELD",
+            "name": "page",
+            "content": {
+              "type": "SYMBOL",
+              "name": "qualifiedIdentifier"
+            }
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "objectBody"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "migrationDeclaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "migration"
+        },
+        {
+          "type": "FIELD",
+          "name": "version",
+          "content": {
+            "type": "SYMBOL",
+            "name": "intLiteralExpr"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parameterList"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expr"
+        }
+      ]
+    },
+    "routeParameter": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "path"
+            },
+            {
+              "type": "STRING",
+              "value": "query"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "typeAnnotation"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_expr"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "applicationReference": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "layout"
+            },
+            {
+              "type": "STRING",
+              "value": "denied"
+            },
+            {
+              "type": "STRING",
+              "value": "redirect"
+            },
+            {
+              "type": "STRING",
+              "value": "not_found"
+            },
+            {
+              "type": "STRING",
+              "value": "signed_out"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "qualifiedIdentifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "stringConstant"
+            }
+          ]
+        }
+      ]
+    },
+    "workflowStatement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "go"
+            },
+            {
+              "type": "STRING",
+              "value": "replace"
+            },
+            {
+              "type": "STRING",
+              "value": "form"
+            },
+            {
+              "type": "STRING",
+              "value": "store"
+            },
+            {
+              "type": "STRING",
+              "value": "session"
+            },
+            {
+              "type": "STRING",
+              "value": "emit"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "command",
+          "content": {
+            "type": "SYMBOL",
+            "name": "qualifiedIdentifier"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "argumentList"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "updateStatement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "update"
+        },
+        {
+          "type": "FIELD",
+          "name": "target",
+          "content": {
+            "type": "SYMBOL",
+            "name": "qualifiedAccessExpr"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
         },
         {
           "type": "SYMBOL",
@@ -5307,6 +5890,129 @@
         }
       ]
     },
+    "_propertyName": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "theme"
+              },
+              {
+                "type": "STRING",
+                "value": "token"
+              },
+              {
+                "type": "STRING",
+                "value": "store"
+              },
+              {
+                "type": "STRING",
+                "value": "form"
+              },
+              {
+                "type": "STRING",
+                "value": "field"
+              },
+              {
+                "type": "STRING",
+                "value": "rule"
+              },
+              {
+                "type": "STRING",
+                "value": "async"
+              },
+              {
+                "type": "STRING",
+                "value": "array"
+              },
+              {
+                "type": "STRING",
+                "value": "server"
+              },
+              {
+                "type": "STRING",
+                "value": "view"
+              },
+              {
+                "type": "STRING",
+                "value": "route"
+              },
+              {
+                "type": "STRING",
+                "value": "path"
+              },
+              {
+                "type": "STRING",
+                "value": "query"
+              },
+              {
+                "type": "STRING",
+                "value": "role"
+              },
+              {
+                "type": "STRING",
+                "value": "range"
+              },
+              {
+                "type": "STRING",
+                "value": "domain"
+              },
+              {
+                "type": "STRING",
+                "value": "schema"
+              },
+              {
+                "type": "STRING",
+                "value": "table"
+              },
+              {
+                "type": "STRING",
+                "value": "action"
+              },
+              {
+                "type": "STRING",
+                "value": "event"
+              },
+              {
+                "type": "STRING",
+                "value": "model"
+              },
+              {
+                "type": "STRING",
+                "value": "entity"
+              },
+              {
+                "type": "STRING",
+                "value": "projection"
+              },
+              {
+                "type": "STRING",
+                "value": "policy"
+              },
+              {
+                "type": "STRING",
+                "value": "guard"
+              },
+              {
+                "type": "STRING",
+                "value": "state"
+              }
+            ]
+          },
+          "named": true,
+          "value": "identifier"
+        }
+      ]
+    },
     "_fieldName": {
       "type": "CHOICE",
       "members": [
@@ -5394,6 +6100,134 @@
               {
                 "type": "STRING",
                 "value": "null"
+              },
+              {
+                "type": "STRING",
+                "value": "unknown"
+              },
+              {
+                "type": "STRING",
+                "value": "nothing"
+              },
+              {
+                "type": "STRING",
+                "value": "out"
+              },
+              {
+                "type": "STRING",
+                "value": "outer"
+              },
+              {
+                "type": "STRING",
+                "value": "theme"
+              },
+              {
+                "type": "STRING",
+                "value": "token"
+              },
+              {
+                "type": "STRING",
+                "value": "store"
+              },
+              {
+                "type": "STRING",
+                "value": "form"
+              },
+              {
+                "type": "STRING",
+                "value": "field"
+              },
+              {
+                "type": "STRING",
+                "value": "rule"
+              },
+              {
+                "type": "STRING",
+                "value": "async"
+              },
+              {
+                "type": "STRING",
+                "value": "array"
+              },
+              {
+                "type": "STRING",
+                "value": "server"
+              },
+              {
+                "type": "STRING",
+                "value": "view"
+              },
+              {
+                "type": "STRING",
+                "value": "route"
+              },
+              {
+                "type": "STRING",
+                "value": "path"
+              },
+              {
+                "type": "STRING",
+                "value": "query"
+              },
+              {
+                "type": "STRING",
+                "value": "role"
+              },
+              {
+                "type": "STRING",
+                "value": "range"
+              },
+              {
+                "type": "STRING",
+                "value": "domain"
+              },
+              {
+                "type": "STRING",
+                "value": "schema"
+              },
+              {
+                "type": "STRING",
+                "value": "table"
+              },
+              {
+                "type": "STRING",
+                "value": "function"
+              },
+              {
+                "type": "STRING",
+                "value": "action"
+              },
+              {
+                "type": "STRING",
+                "value": "event"
+              },
+              {
+                "type": "STRING",
+                "value": "model"
+              },
+              {
+                "type": "STRING",
+                "value": "entity"
+              },
+              {
+                "type": "STRING",
+                "value": "projection"
+              },
+              {
+                "type": "STRING",
+                "value": "policy"
+              },
+              {
+                "type": "STRING",
+                "value": "guard"
+              },
+              {
+                "type": "STRING",
+                "value": "state"
+              },
+              {
+                "type": "STRING",
+                "value": "value"
               }
             ]
           },
@@ -5429,6 +6263,46 @@
               {
                 "type": "STRING",
                 "value": "mutation"
+              },
+              {
+                "type": "STRING",
+                "value": "invoke"
+              },
+              {
+                "type": "STRING",
+                "value": "perform"
+              },
+              {
+                "type": "STRING",
+                "value": "function"
+              },
+              {
+                "type": "STRING",
+                "value": "field"
+              },
+              {
+                "type": "STRING",
+                "value": "rule"
+              },
+              {
+                "type": "STRING",
+                "value": "async"
+              },
+              {
+                "type": "STRING",
+                "value": "array"
+              },
+              {
+                "type": "STRING",
+                "value": "server"
+              },
+              {
+                "type": "STRING",
+                "value": "path"
+              },
+              {
+                "type": "STRING",
+                "value": "route"
               }
             ]
           },
@@ -5908,6 +6782,10 @@
     {
       "type": "PATTERN",
       "value": "[ \\t\\f\\r\\n;]"
+    },
+    {
+      "type": "STRING",
+      "value": ";"
     }
   ],
   "conflicts": [
@@ -5951,6 +6829,65 @@
     [
       "constructorExpr",
       "genericExpr"
+    ],
+    [
+      "domainDeclaration",
+      "workflowStatement"
+    ],
+    [
+      "domainBinding",
+      "routeParameter"
+    ],
+    [
+      "domainBinding",
+      "routeParameter",
+      "_callName"
+    ],
+    [
+      "routeParameter",
+      "_callName"
+    ],
+    [
+      "routeDeclaration",
+      "_callName"
+    ],
+    [
+      "namedRouteDeclaration",
+      "_callName"
+    ],
+    [
+      "methodHeader",
+      "qualifiedIdentifier"
+    ],
+    [
+      "domainDeclaration",
+      "_propertyName"
+    ],
+    [
+      "domainDeclaration",
+      "_callName"
+    ],
+    [
+      "methodHeader",
+      "domainDeclaration",
+      "_callName"
+    ],
+    [
+      "qualifiedIdentifier",
+      "_propertyName",
+      "_callName"
+    ],
+    [
+      "typedIdentifier",
+      "_propertyName"
+    ],
+    [
+      "domainBlock",
+      "_propertyName"
+    ],
+    [
+      "_propertyName",
+      "_callName"
     ]
   ],
   "precedences": [],
