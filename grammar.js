@@ -94,7 +94,7 @@ module.exports = grammar(pkl, {
     _propertyName: $ => choice($.identifier, alias(choice('theme', 'token', 'store', 'form',
       'field', 'rule', 'async', 'array', 'server', 'view', 'route', 'path', 'query',
       'role', 'range', 'domain', 'schema', 'table', 'action', 'event', 'model',
-      'entity', 'projection', 'policy', 'guard', 'state'), $.identifier)),
+      'entity', 'projection', 'policy', 'guard', 'state', 'sequence'), $.identifier)),
     _fieldName: $ => choice($.identifier, alias(choice('class', 'module', 'function',
       'new', 'if', 'else', 'import', 'read', 'for', 'in', 'const', 'fixed', 'local',
       'hidden', 'this', 'super', 'true', 'false', 'null', 'unknown', 'nothing', 'out', 'outer', 'theme', 'token', 'store', 'form',

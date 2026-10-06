@@ -6005,6 +6005,10 @@
               {
                 "type": "STRING",
                 "value": "state"
+              },
+              {
+                "type": "STRING",
+                "value": "sequence"
               }
             ]
           },
